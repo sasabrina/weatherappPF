@@ -1,31 +1,15 @@
-import { ChangeEvent, useEffect, useState } from "react";
-import { fetchCurrentWeather, fetchForecast } from "./api/apiWeather";
-import "./App.css";
+import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { WeatherContext } from "./context/WeatherContext";
 import { CITIES } from "./data";
 import { City } from "./models";
+import "./App.css";
 
 function App() {
   const [city, setCity] = useState<City["name"]>("");
-  const [weather, setWeather] = useState<any>({});
-  const [loading, setLoading] = useState<boolean>(false);
+  const { weatherState, loading, getWeather } = useContext(WeatherContext);
 
   const handleSelectchange = (e: ChangeEvent<HTMLSelectElement>): void => {
     setCity(e.target.value);
-  };
-
-  const getWeather = async (name: string) => {
-    setLoading(true);
-    try {
-      const [weather, forecast] = await Promise.all([
-        fetchCurrentWeather(name),
-        fetchForecast(name),
-      ]);
-
-      setWeather({ ...weather, forecast: [...forecast] });
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -39,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{weather.name}</h1>
+      <h1>{weatherState.name}</h1>
 
       <select
         name="cities"
