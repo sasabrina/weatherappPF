@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { City, WeatherState } from "../models";
+import { City, WeatherState } from "@/models";
 
 type WeatherContextProps = {
   weatherState: WeatherState;

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { fetchCurrentWeather, fetchForecast } from "../api/apiWeather";
-import { City, WeatherState } from "../models";
+import { fetchCurrentWeather, fetchForecast } from "@/api/apiWeather";
+import { City, WeatherState } from "@/models";
 import { WeatherContext } from "./WeatherContext";
 
 interface props {

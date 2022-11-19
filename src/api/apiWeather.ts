@@ -1,4 +1,4 @@
-import { CurrentWeather, Forecast } from "../models/types";
+import { CurrentWeather, Forecast } from "@/models";
 
 export const fetchCurrentWeather = async (
   name: string

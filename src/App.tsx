@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { WeatherContext } from "./context/WeatherContext";
-import { CITIES } from "./data";
-import { City } from "./models";
+import { WeatherContext } from "@/context/WeatherContext";
+import { CITIES } from "@/data";
+import { City } from "@/models";
 import "./App.css";
 
 function App() {
