@@ -1,0 +1,42 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_mixins.scss";
+
+.container {
+  width: 100%;
+  margin: 16px 0;
+  padding: 24px 0;
+  border-radius: 4px;
+  background-color: $blue;
+  color: $light;
+  @include flex(column, center, center);
+  gap: 16px;
+
+  .title,
+  .description {
+    font-size: 23px;
+    font-weight: 400;
+  }
+
+  .temperature {
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+    @include flex(null, null, null);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .details {
+    span {
+      &:first-of-type {
+        margin-right: 32px;
+      }
+    }
+  }
+}
