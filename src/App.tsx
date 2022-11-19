@@ -2,7 +2,8 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { WeatherContext } from "@/context/WeatherContext";
 import { CITIES } from "@/data";
 import { City } from "@/models";
-import "./App.css";
+import { Select, Option } from "@/components";
+import styles from "./App.module.scss";
 
 function App() {
   const [city, setCity] = useState<City["name"]>("");
@@ -22,25 +23,26 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>{weatherState.name}</h1>
+    <>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Weather app</h1>
+      </header>
 
-      <select
-        name="cities"
-        id="cities"
-        value={city}
-        onChange={handleSelectchange}
-      >
-        <option disabled value="">
-          Seleccione una ciudad
-        </option>
-        {CITIES.map((city) => (
-          <option key={city.id} value={city.id}>
-            {city.name}
-          </option>
-        ))}
-      </select>
-    </div>
+      <main className={styles.main}>
+        <Select
+          name="cities"
+          value={city}
+          onchange={handleSelectchange}
+          optionPlaceholder="Seleccione una ciudad..."
+        >
+          {CITIES.map((city) => (
+            <Option key={city.id} value={city.id} name={city.name} />
+          ))}
+        </Select>
+
+        <h2>{weatherState.name}</h2>
+      </main>
+    </>
   );
 }
 

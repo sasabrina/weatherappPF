@@ -1,0 +1,14 @@
+@import "@/styles/_variables.scss";
+
+* {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: $dark;
+}
