@@ -1,14 +1,16 @@
-import { CurrentWeather, Forecast } from "@/models";
+import { CurrentWeather, Forecast, RawForecast, RawWeather } from "@/models";
+
+const BASE_URL: string = "http://api.openweathermap.org/data/2.5";
+const createUrl = (query: string): string =>
+  `${BASE_URL}${query}&appid=${import.meta.env.VITE_API_KEY}`;
 
 export const fetchCurrentWeather = async (
   name: string
 ): Promise<CurrentWeather> => {
-  const apiUrl: string = `http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${
-    import.meta.env.VITE_API_KEY
-  }`;
+  const apiUrl: string = createUrl(`/weather?q=${name}`);
 
   const request = await fetch(apiUrl);
-  const response = await request.json();
+  const response: RawWeather = await request.json();
 
   return {
     name: response.name,
@@ -25,12 +27,10 @@ export const fetchCurrentWeather = async (
 };
 
 export const fetchForecast = async (name: string): Promise<Forecast[]> => {
-  const apiUrl: string = `http://api.openweathermap.org/data/2.5/forecast?q=${name}&appid=${
-    import.meta.env.VITE_API_KEY
-  }`;
+  const apiUrl: string = createUrl(`/forecast?q=${name}`);
 
   const request = await fetch(apiUrl);
-  const response = await request.json();
+  const response: RawForecast = await request.json();
   const forecast = response.list.filter(
     (item: any, i: number) => i % 8 === 0 && item
   );
