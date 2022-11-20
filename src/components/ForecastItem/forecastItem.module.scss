@@ -1,0 +1,12 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_mixins.scss";
+
+.container {
+  width: 100%;
+  color: $light;
+  background-color: $blue;
+  border-radius: 4px;
+  padding: 16px 0;
+  @include flex(column, center, center);
+  gap: 16px;
+}

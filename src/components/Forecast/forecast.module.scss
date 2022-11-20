@@ -1,0 +1,9 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_mixins.scss";
+
+.container {
+  width: 100%;
+  list-style: none;
+  @include flex(null, space-between, center);
+  gap: 16px;
+}

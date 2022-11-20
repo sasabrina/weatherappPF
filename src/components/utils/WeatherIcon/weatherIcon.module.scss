@@ -1,0 +1,12 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_mixins.scss";
+
+.iconContainer {
+  width: 50px;
+  height: 50px;
+  @include flex(null, null, null);
+
+  img {
+    width: 100%;
+  }
+}

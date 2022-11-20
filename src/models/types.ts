@@ -12,7 +12,7 @@ export type CurrentWeather = {
 };
 
 export type Forecast = {
-  date: number;
+  date: string;
   temp: number;
   main: string;
   icon: string;

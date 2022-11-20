@@ -2,7 +2,7 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { WeatherContext } from "@/context/WeatherContext";
 import { CITIES } from "@/data";
 import { City } from "@/models";
-import { Select, Option, CurrentWeather } from "@/components";
+import { Select, Option, CurrentWeather, Forecast } from "@/components";
 import styles from "./App.module.scss";
 
 function App() {
@@ -40,7 +40,12 @@ function App() {
           ))}
         </Select>
 
-        <CurrentWeather weather={weatherState} />
+        {weatherState.forecast && (
+          <>
+            <CurrentWeather weather={weatherState} />
+            <Forecast items={weatherState.forecast} />
+          </>
+        )}
       </main>
     </>
   );

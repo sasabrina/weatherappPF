@@ -36,3 +36,7 @@ export const capitalize = (input: string, separator: string): string => {
         .join(" ")
     : `${capitalizeWord(input)}`;
 };
+
+// returns formated temperature to render
+export const formatTemperature = (temp: number): string =>
+  `${kelvinToCelcius(temp)} °C`;
