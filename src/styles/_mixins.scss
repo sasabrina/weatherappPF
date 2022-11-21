@@ -4,3 +4,9 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+@mixin media($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}

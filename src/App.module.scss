@@ -4,7 +4,11 @@
 .header {
   height: 8vh;
   width: 100%;
-  @include flex(null, null, center);
+  @include flex(null, center, center);
+
+  @include media($medium) {
+    @include flex(null, start, center);
+  }
 
   .title {
     font-size: 24px;

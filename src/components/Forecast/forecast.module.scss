@@ -2,8 +2,12 @@
 @import "@/styles/_mixins.scss";
 
 .container {
+  @include flex(column, null, space-between);
   width: 100%;
   list-style: none;
-  @include flex(null, space-between, center);
   gap: 16px;
+
+  @include media($medium) {
+    @include flex(row, space-between, center);
+  }
 }
