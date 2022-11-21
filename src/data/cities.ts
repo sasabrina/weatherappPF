@@ -6,8 +6,8 @@ export const CITIES: City[] = [
     name: "Houston",
   },
   {
-    id: "londres",
-    name: "Londres",
+    id: "london",
+    name: "London",
   },
   {
     id: "barcelona",

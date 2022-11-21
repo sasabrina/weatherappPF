@@ -37,7 +37,7 @@ export const fetchForecast = async (name: string): Promise<Forecast[]> => {
 
   return forecast.map(
     (item: any): Forecast => ({
-      date: item.dt_txt,
+      date: item.dt,
       temp: item.main.temp,
       main: item.weather[0].main,
       icon: item.weather[0].icon,

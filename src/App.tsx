@@ -33,7 +33,7 @@ function App() {
           name="cities"
           value={city}
           onchange={handleSelectchange}
-          optionPlaceholder="Seleccione una ciudad..."
+          optionPlaceholder="Select a city..."
         >
           {CITIES.map((city) => (
             <Option key={city.id} value={city.id} name={city.name} />

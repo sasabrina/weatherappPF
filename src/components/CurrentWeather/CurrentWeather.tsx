@@ -31,8 +31,8 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({
       </p>
 
       <p className={styles.details}>
-        <span>Sen. Térmica: {formatTemperature(feelsLike)}</span>
-        <span>Humedad: {humidity}%</span>
+        <span>Feels like: {formatTemperature(feelsLike)}</span>
+        <span>Humidity: {humidity}%</span>
       </p>
     </div>
   );
