@@ -2,7 +2,13 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { WeatherContext } from "@/context/WeatherContext";
 import { CITIES } from "@/data";
 import { City } from "@/models";
-import { Select, Option, CurrentWeather, Forecast } from "@/components";
+import {
+  Select,
+  Option,
+  CurrentWeather,
+  Forecast,
+  Loading,
+} from "@/components";
 import styles from "./App.module.scss";
 
 function App() {
@@ -40,14 +46,16 @@ function App() {
           ))}
         </Select>
 
-        {loading && <p>Cargando...</p>}
-
-        {weatherState.forecast && (
-          <>
-            <CurrentWeather weather={weatherState} />
-            <Forecast items={weatherState.forecast} />
-          </>
-        )}
+        <section className={styles.weatherContainer}>
+          {loading && <Loading active={loading} />}
+          {/* <Loading active={true} /> */}
+          {weatherState.forecast && (
+            <>
+              <CurrentWeather weather={weatherState} />
+              <Forecast items={weatherState.forecast} />
+            </>
+          )}
+        </section>
       </main>
     </>
   );
