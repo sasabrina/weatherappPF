@@ -9,18 +9,18 @@ function App() {
   const [city, setCity] = useState<City["name"]>("");
   const { weatherState, loading, getWeather } = useContext(WeatherContext);
 
-  const handleSelectchange = (e: ChangeEvent<HTMLSelectElement>): void => {
+  const handleSelectchange = (e: ChangeEvent<HTMLSelectElement>): void =>
     setCity(e.target.value);
-  };
 
   useEffect(() => {
-    if (city) getWeather(city);
-    else getWeather("buenos aires");
-  }, [city]);
+    const options = {
+      name: city,
+      lat: null,
+      lon: null,
+    };
 
-  if (loading) {
-    return <div>Cargando...</div>;
-  }
+    if (city) getWeather(options);
+  }, [city]);
 
   return (
     <>
@@ -39,6 +39,8 @@ function App() {
             <Option key={city.id} value={city.id} name={city.name} />
           ))}
         </Select>
+
+        {loading && <p>Cargando...</p>}
 
         {weatherState.forecast && (
           <>

@@ -1,13 +1,21 @@
-import { CurrentWeather, Forecast, RawForecast, RawWeather } from "@/models";
+import {
+  CurrentWeather,
+  FetchWeatherOptions,
+  Forecast,
+  RawForecast,
+  RawWeather,
+} from "@/models";
 
 const BASE_URL: string = "http://api.openweathermap.org/data/2.5";
 const createUrl = (query: string): string =>
   `${BASE_URL}${query}&appid=${import.meta.env.VITE_API_KEY}`;
 
 export const fetchCurrentWeather = async (
-  name: string
+  options: FetchWeatherOptions
 ): Promise<CurrentWeather> => {
-  const apiUrl: string = createUrl(`/weather?q=${name}`);
+  const { name, lat, lon } = options;
+  const query = name ? `q=${name}` : `lat=${lat}&lon=${lon}`;
+  const apiUrl: string = createUrl(`/weather?${query}`);
 
   const request = await fetch(apiUrl);
   const response: RawWeather = await request.json();
@@ -26,8 +34,13 @@ export const fetchCurrentWeather = async (
   };
 };
 
-export const fetchForecast = async (name: string): Promise<Forecast[]> => {
-  const apiUrl: string = createUrl(`/forecast?q=${name}`);
+export const fetchForecast = async (
+  options: FetchWeatherOptions
+): Promise<Forecast[]> => {
+  const { name, lat, lon } = options;
+
+  const query = name ? `q=${name}` : `lat=${lat}&lon=${lon}`;
+  const apiUrl: string = createUrl(`/forecast?${query}`);
 
   const request = await fetch(apiUrl);
   const response: RawForecast = await request.json();

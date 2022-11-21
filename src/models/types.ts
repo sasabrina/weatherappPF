@@ -125,3 +125,15 @@ export type RawForecast = {
     sunset: number;
   };
 };
+
+export type FetchWeatherOptions = {
+  name: string | null;
+  lat: number | null;
+  lon: number | null;
+};
+
+export type Location = {
+  enabled: boolean;
+  lat: number;
+  lon: number;
+};
