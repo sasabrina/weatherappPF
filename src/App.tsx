@@ -2,18 +2,12 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import { WeatherContext } from "@/context/WeatherContext";
 import { CITIES } from "@/data";
 import { City } from "@/models";
-import {
-  Select,
-  Option,
-  CurrentWeather,
-  Forecast,
-  Loading,
-} from "@/components";
+import { Select, Option, Weather } from "@/components";
 import styles from "./App.module.scss";
 
 function App() {
   const [city, setCity] = useState<City["name"]>("");
-  const { weatherState, loading, getWeather } = useContext(WeatherContext);
+  const { getWeather } = useContext(WeatherContext);
 
   const handleSelectchange = (e: ChangeEvent<HTMLSelectElement>): void =>
     setCity(e.target.value);
@@ -46,16 +40,7 @@ function App() {
           ))}
         </Select>
 
-        <section className={styles.weatherContainer}>
-          {loading && <Loading active={loading} />}
-          {/* <Loading active={true} /> */}
-          {weatherState.forecast && (
-            <>
-              <CurrentWeather weather={weatherState} />
-              <Forecast items={weatherState.forecast} />
-            </>
-          )}
-        </section>
+        <Weather />
       </main>
     </>
   );

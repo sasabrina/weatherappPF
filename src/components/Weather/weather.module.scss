@@ -1,0 +1,10 @@
+@import "@/styles/_variables.scss";
+@import "@/styles/_mixins.scss";
+
+.weatherContainer {
+  position: relative;
+  width: 100%;
+  @include flex(column, center, center);
+
+  gap: 16px;
+}

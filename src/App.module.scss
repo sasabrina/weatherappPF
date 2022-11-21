@@ -22,12 +22,4 @@
   select {
     width: 50%;
   }
-
-  .weatherContainer {
-    position: relative;
-    width: 100%;
-    @include flex(column, center, center);
-
-    gap: 16px;
-  }
 }
