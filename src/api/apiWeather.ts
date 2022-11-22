@@ -6,7 +6,7 @@ import {
   RawWeather,
 } from "@/models";
 
-const BASE_URL: string = "http://api.openweathermap.org/data/2.5/";
+const BASE_URL: string = "https://api.openweathermap.org/data/2.5/";
 const createUrl = (type: string, params: FetchWeatherOptions): string => {
   const { name, lat, lon } = params;
   const query = name ? `q=${name}` : `lat=${lat}&lon=${lon}`;
