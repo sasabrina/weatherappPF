@@ -11,6 +11,7 @@ El siguiente desafío plantea el desarrollo de una aplicación de consulta de cl
 - Typescript
 - Sass
 - Geolocalización
+- React testing library
 
 ## Setup
 
@@ -19,6 +20,7 @@ Se debe crear un archivo `.env` en el directorio raíz, en cual se deben agregar
 
 1.  `npm install` para instalar dependencias.
 2.  `npm run dev` para correr el proyecto en modo desarrollo.
+3.  `npm run test` para correr tests.
 
 Abrir [http://localhost:5173/](http://localhost:5173/)
 
